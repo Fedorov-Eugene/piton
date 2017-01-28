@@ -1,23 +1,8 @@
-def quick_sort(arr):
-    quick_sort_kek(arr, 0, len(arr) - 1)
-    
-def quick_sort_kek(arr, y, x):
-    l, r = y, x
-    mid = arr[(l + r)//2]
-    while l <= r:
-        while arr[l] < mid:
-            l += 1
-        while arr[r] > mid:
-            r -= 1
-        if l <= r:
-            arr[l], arr[r] = arr[r], arr[l] #swap
-            l += 1
-            r -= 1
-
-    if  y < r:
-        quick_sort_kek(arr, y, r)
-    if x > l:
-        quick_sort_kek(arr, l, x)
+def quick_sort(arr): 
+     if len(arr) <= 1:
+          return arr
+     else:
+          return quick_sort([x for x in arr[1:] if x<arr[0]]) + [arr[0]] + quick_sort([x for x in arr[1:] if x>=arr[0]])
 
 def merge_sort(arr):
     if len(arr) > 1:
@@ -69,8 +54,7 @@ def main():
     arr = list(map(int, input().split()))
     print('1.quick_sort\n2.merge_sort\n3.radix_sort')
     sort_number = input()
-    sort[sort_number](arr)
-    print(arr)
+    print(sort[sort_number](arr))
 
 
 
