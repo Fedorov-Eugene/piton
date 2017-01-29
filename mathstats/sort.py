@@ -41,8 +41,9 @@ def radix_sort(array):
         for j in range(rang):
             array = array + array_rang[j]
     return array
-
+    
 def main():
+    print('Input numbers:')
     sort = {'1':quick_sort, '2':merge_sort, '3':radix_sort}
     array = list(map(int, input().split()))
     print('1.quick_sort\n2.merge_sort\n3.radix_sort')

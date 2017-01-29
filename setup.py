@@ -1,5 +1,7 @@
-import views.console_input
-import views.console_view
+import mathstats.search as se
+import mathstats.sort as so
+from views.console_input import ConsoleReader
+from views.console_view	import ConsoleWriter
 
 class Controller(object):
 	"""Controller"""
@@ -8,14 +10,14 @@ class Controller(object):
 		self.I = input_
 		self.O = output
 
-	def start():
+	def start(self):
 		while True:
-			print("1. Open TextStats module\n2. Open Sorting module\n3. Open UniqHolder module\n4. Exit")
-			cmd = I.request("Enter command: ")
+			print("\n1. Open TextStats module\n2. Open Sorting module\n3. Open UniqHolder module\n4. Exit")
+			cmd = self.I.request("Enter command: ")
 			if cmd == "1":
-				pass
+				se.main()
 			elif cmd == "2":
-				pass
+				so.main()
 			elif cmd == "3":
 				pass
 			else:

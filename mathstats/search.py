@@ -9,12 +9,12 @@ def word_analysis(str):
     words_set = set(spliter_80lvl(str))
     words_dict = {}
     for word in words_set:
-        words_dict[word] = lower_str.count(word) 
+        words_dict[word] = str.lower().count(word) 
     return words_dict
 
 
 def sentence_analysis(str):
-    sentences_array = check(str.split('.'))
+    sentences_array = [x for x in str.split('.') if x]
     count_words = []
     for sentence in sentences_array:
         words_array = spliter_80lvl(sentence)
@@ -36,6 +36,8 @@ def n_gramm(str, k = 10, n = 4):
     print(result)
 
 
+def main():
+    pass
 
 if __name__ == "__main__":
-    n_gramm('Дмитрий Захаров страстно желал быть в тренде и учить китайский, но в тот год не проводился набор. Парень выбрал фарси и через некоторое время понял, какие перспективы открывает его знание. Студент заморозил белорусскую учебу и отправился в страну газа, нефти, урана, не столь строгого, как в американском кино, ислама и множества кебабных. Теперь учится, производя инвестиции в свое будущее, не ест свинину, скучает по драникам и ждет, когда с Ирана будут сняты экономические санкции.')
+    main()
