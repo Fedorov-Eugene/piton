@@ -6,7 +6,6 @@ from views.console_input import request
 from views.console_view import response
 
 def suppose(get, awaits):
-	print(symbol + text + symbol + '\033[0m')
 	if func[option](arr) == sorted(arr):
 		response("="*80 + "\nTest passed\n" + "="*80, 'green')
 	else:
