@@ -6,7 +6,7 @@ from views.console_input import request
 from views.console_view import response
 
 def suppose(get, awaits):
-	if func[option](arr) == sorted(arr):
+	if get == awaits:
 		response("="*80 + "\nTest passed\n" + "="*80, 'green')
 	else:
 		response("="*80 + "\nTest failed\n" + "="*80 + "\nYour result: " + str(get) + "\nExpected: " + str(awaits), 'red')
