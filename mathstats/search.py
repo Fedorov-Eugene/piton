@@ -36,8 +36,12 @@ def n_gramm(str, k = 10, n = 4):
     print(result)
 
 
-def main():
-    pass
+def main(str):
+    for i,j in word_analysis(str).items():
+        print('{}--{}'.format(i,j))
+    print('='*100)
+    math = sentence_analysis(str)
+    print('average - {}\nmedian - {}'.format(math['average'],math['median']))  
 
 if __name__ == "__main__":
     main()
