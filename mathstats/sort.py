@@ -1,5 +1,6 @@
 def quick_sort(arr):
     quick_sort_kek(arr, 0, len(arr) - 1)
+    
 def quick_sort_kek(arr, y, x):
     l, r = y, x
     mid = arr[(l + r)//2]
