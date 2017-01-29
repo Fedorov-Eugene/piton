@@ -1,10 +1,10 @@
-def quick_sort(arr): 
-    if len(arr) <= 1:
-        return arr
+def quick_sort(array): 
+    if len(array) <= 1:
+        return array
     else:
-        lefthalf = quick_sort([x for x in arr[1:] if x<arr[0]])
-        righthalf = quick_sort([x for x in arr[1:] if x>=arr[0]])
-        return lefthalf + [arr[0]] + righthalf
+        lefthalf = quick_sort([x for x in array[1:] if x<array[0]])
+        righthalf = quick_sort([x for x in array[1:] if x>=array[0]])
+        return lefthalf + [array[0]] + righthalf
 
 def merge_sort(array):
 
@@ -29,25 +29,25 @@ def merge_sort(array):
         R = array[len(array) // 2:]
     return merge(merge_sort(L), merge_sort(R))
 
-def radix_sort(arr):
+def radix_sort(array):
     rang = 10
-    length = len(str(max(arr)))
+    length = len(str(max(array)))
     for i in range(length):
-        arr_rang = [[] for j in range(rang)]
-        for j in arr:
+        array_rang = [[] for j in range(rang)]
+        for j in array:
             figure = j // 10**i % 10
-            arr_rang[figure].append(j)  
-        arr = []
+            array_rang[figure].append(j)  
+        array = []
         for j in range(rang):
-            arr = arr + arr_rang[j]
-    return arr
+            array = array + array_rang[j]
+    return array
 
 def main():
     sort = {'1':quick_sort, '2':merge_sort, '3':radix_sort}
-    arr = list(map(int, input().split()))
+    array = list(map(int, input().split()))
     print('1.quick_sort\n2.merge_sort\n3.radix_sort')
     sort_number = input()
-    print(sort[sort_number](arr))
+    print(sort[sort_number](array))
 
 
 
