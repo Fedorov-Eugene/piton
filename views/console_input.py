@@ -3,7 +3,7 @@ class ConsoleReader(object):
 	def __init__(self):
 		super(ConsoleReader, self).__init__()
 
-	def request(self,prompt):	
+	def request(self,prompt = "Enter: "):
 		return input(prompt)
 
 		

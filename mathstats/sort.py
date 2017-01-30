@@ -42,6 +42,16 @@ def radix_sort(array):
             array = array + array_rang[j]
     return array
 
+def quick_sort_test(txt): 
+    return quick_sort(list(map(int, txt.split(" "))))
+
+def merge_sort_test(txt): 
+    return merge_sort(list(map(int, txt.split(" "))))
+
+def radix_sort_test(txt): 
+    return radix_sort(list(map(int, txt.split(" "))))
+
+
 def main(str):
     pass
 

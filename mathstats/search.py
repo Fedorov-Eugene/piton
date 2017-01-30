@@ -2,10 +2,10 @@ import re
 #delite "" or ''
 
 def isemail(txt):
-    return re.compile(r"^.+?\@\w+?\.\w{2,3}$", re.I | re.S).match(txt)
+    return re.compile(r"^.+?\@\w+?\.\w{2,3}$", re.I | re.S).match(txt) != None
 
 def isfloat(txt):
-    return re.compile(r"^\d+?(?:\.|\,)\d+?$", re.S).match(txt)
+    return re.compile(r"^\d+?(?:\.|\,)\d+?$", re.S).match(txt) != None
 
 def urlparse(txt):
     return re.match(re.compile(r"^(?P<schema>https?)://(?P<host>.+?)/(?P<path>[^?]+?)?(?:\?|$)(?P<params>.+?)?$", re.I | re.S), txt).groupdict()

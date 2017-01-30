@@ -1,6 +1,6 @@
 DEFAULTS = {
-	"uniq_save_path": "cache/uniq.md",
-	"uniq_load_path": "cache/uniq.md",
+	"uniq_save_path": "tmp.md",
+	"uniq_load_path": "tmp.md",
 	"input_controller": "console_input.py",
 	"view": "console_view.py"
 }

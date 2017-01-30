@@ -10,8 +10,11 @@ def fib(index):
         yield b
 
 def fibonacci(index):
-    for _ in range(index):
+    for _ in range(int(index)):
         yield floor((pow((1+sqrt(5))/2, _)-pow((1-sqrt(5))/2, _))/sqrt(5))
+
+def fib_array(index):
+    return list(fibonacci(index))
 
 def main():
     pass

@@ -1,30 +1,39 @@
+from .command import Command
 class Controller(object):
     """Controller"""
-    def __init__(self, input_, output, cmds = {}):
+    def __init__(self, input_, output):
         super(Controller, self).__init__()
         self.I = input_
         self.O = output
-        self.cmd = {"help": self.introduce()}.update(cmds)
+        self.cmd = {"help": Command(self.wait, self.O.response ,self.introduce) }
+
+    def wait(self, *whatever):
+        pass
 
     def add(self, name, func):
         self.cmd[name.lower()] = func
         return self
 
-    def introduce(self):
+    def introduce(self, *whatever):
         self.O.response("Command list: ")
         for counter, key in enumerate(self.cmd):
             self.O.response(str(counter) + ". " + key.capitalize())
 
     def no_command_error(self, name):
-        self.O.response("There is no command with name '" + name + "', please try again.")
+        self.O.response("There is no command with name '" + str(name) + "', please try again.")
 
     def start(self):
         self.introduce()
         prompt = self.I.request("Enter: ").lower()
-        while self.cmd.setdefault(prompt, default=no_command_error):
-            self.cmd.setdefault(prompt, default=no_command_error)()
+        while self.cmd.setdefault(prompt, Command(prompt, self.O.response, self.no_command_error)):
+            self.cmd.setdefault(prompt, Command(prompt, self.O.response, self.no_command_error))();
             prompt = self.I.request("Enter: ").lower()
+
+    def generate_command(self, func, prom = ""):
+        return Command(self.I.request, self.O.response, func, prom)
             
+    def silent_command(self, func):
+        return Command(None, self.O.response, func)
 
     def get_date(self, name):
         i = self.I.request('1.File\n2.Input\n')
