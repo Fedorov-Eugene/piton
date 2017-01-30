@@ -14,7 +14,11 @@ def arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('modul', nargs = '?')
     namespace = parser.parse_args()
-    return(namespace.modul)
+    MODULE_LIST = ["sorting",
+                    "fibonacci",
+                    "search",
+                    "unique holder"]
+    return(namespace.modul if namespace.modul in MODULE_LIST else None)
 
 def sorting_controller(cin, cout):
     tmp = Controller(cin, cout)
