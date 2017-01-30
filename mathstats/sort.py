@@ -43,13 +43,7 @@ def radix_sort(array):
     return array
 
 def main(str):
-    sort = {'1':quick_sort, '2':merge_sort, '3':radix_sort}
-    array = list(map(int, str.split()))
-    print('1.quick_sort\n2.merge_sort\n3.radix_sort')
-    sort_number = input()
-    print(sort[sort_number](array))
-
-
+    pass
 
 if __name__ == "__main__":
     main()

@@ -12,12 +12,12 @@ class Controller(object):
 
     def start(self):
         while True:
-            print("\n1. Open TextStats module\n2. Open Sorting module\n3. Open UniqHolder module\n4. Exit")
+            self.O.response("1. Open TextStats module\n2. Open Sorting module\n3. Open UniqHolder module\n4. Test Fibonacci\n5. Exit", 'green')
             cmd = self.I.request("Enter command: ")
             if cmd == "1":
-                se.main(self.get_date('path of text file'))
+                self.textstats_module(self.get_date('path of text file'))
             elif cmd == "2":
-                so.main(self.get_date('path of numbre file'))
+                self.sorting_module(self.get_date('path of numbre file'))
             elif cmd == "3":
                 pass
             else:
@@ -31,7 +31,23 @@ class Controller(object):
         else:
             result = self.I.request('Input:') 
         return result
-        
+    
+    def sorting_module(self, date):
+        sort = {'1':so.quick_sort, '2':so.merge_sort, '3':so.radix_sort}
+        array = list(map(int, date.split()))
+        self.O.response('1.quick_sort\n2.merge_sort\n3.radix_sort','red')
+        sort_number = self.I.request('Input:') 
+        self.O.response(str(sort[sort_number](array)))
+        self.O.response('='*50,'blue')
+
+    def textstats_module(self, date):
+        for i,j in se.word_analysis(date).items():
+            self.O.response('{}--{}'.format(i,j))
+        math = se.sentence_analysis(date)
+        self.O.response('average - {}\nmedian - {}'.format(math['average'],math['median'])) 
+        self.O.response('='*50,'blue')
+
+
 
 def main():
     Controller(ConsoleReader(), ConsoleWriter()).start()
