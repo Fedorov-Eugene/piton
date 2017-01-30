@@ -34,8 +34,6 @@ class Controller(object):
         while self.retrieve_command(prompt):
             self.retrieve_command(prompt)();
             prompt = self.I.request("Enter: ").lower()
-
-
         
     def generate_command(self, func, prom = ""):
         return Command(self.I.request, self.O.response, func, prom)
