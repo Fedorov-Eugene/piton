@@ -11,8 +11,8 @@ def url_inspect(txt):
     return re.match(re.compile(r"^(?P<schema>https?)://(?P<host>.+?)/(?P<path>[^?]+?)?(?:\?|$)(?P<params>.+?)?$", re.I | re.S), txt).groupdict()
 
 
-def spliter(str):
-    kek = re.split('[\n,"\s()\.\']+',str.lower())
+def spliter(text):
+    kek = re.split('[\n,"\s()\.\']+', text.lower())
     return [x for x in kek if x]
 
 def word_analysis(str):
@@ -47,11 +47,7 @@ def n_gramm(str, k = 10, n = 4):
 
 
 def main(str):
-    for i,j in word_analysis(str).items():
-        print('{}--{}'.format(i,j))
-    print('='*100)
-    math = sentence_analysis(str)
-    print('average - {}\nmedian - {}'.format(math['average'],math['median']))  
+    pass
 
 if __name__ == "__main__":
     main()
