@@ -22,17 +22,21 @@ class Controller(object):
     def no_command_error(self, name):
         self.O.response("There is no command with name '" + str(name) + "', please try again.")
 
+    def retrieve_command(self, name):
+        return self.cmd[name] if name in self.cmd else Command(name, self.O.response, self.no_command_error)
+
     def start(self, arg = None):
         if not arg:
             self.introduce()
             prompt = self.I.request("Enter: ").lower()
         else:
             prompt = arg    
-        while self.cmd.setdefault(prompt, Command(prompt, self.O.response, self.no_command_error)):
-            self.cmd.setdefault(prompt, Command(prompt, self.O.response, self.no_command_error))();
-            self.cmd.pop(prompt)
+        while self.retrieve_command(prompt):
+            self.retrieve_command(prompt)();
             prompt = self.I.request("Enter: ").lower()
 
+
+        
     def generate_command(self, func, prom = ""):
         return Command(self.I.request, self.O.response, func, prom)
             
