@@ -25,13 +25,16 @@ class Controller(object):
     def retrieve_command(self, name):
         return self.cmd[name] if name in self.cmd else Command(name, self.O.response, self.no_command_error)
 
-    def start(self):
-        self.introduce()
-        prompt = self.I.request("Enter: ").lower()
+    def start(self, arg = None):
+        if not arg:
+            self.introduce()
+            prompt = self.I.request("Enter: ").lower()
+        else:
+            prompt = arg    
         while self.retrieve_command(prompt):
             self.retrieve_command(prompt)();
             prompt = self.I.request("Enter: ").lower()
-
+        
     def generate_command(self, func, prom = ""):
         return Command(self.I.request, self.O.response, func, prom)
             
