@@ -5,4 +5,5 @@ class ConsoleReader(object):
 
 	def request(self,prompt):	
 		return input(prompt)
+
 		

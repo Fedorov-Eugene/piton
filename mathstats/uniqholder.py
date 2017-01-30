@@ -28,4 +28,4 @@ class UniqueHolder(object):
 
 	def load(self, name):
 		with open(name, "r") as file:
-			self.holder = file.readlines()
+			self.holder = set(file.readlines())

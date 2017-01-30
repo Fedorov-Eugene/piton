@@ -14,8 +14,7 @@ def fibonacci(index):
         yield floor((pow((1+sqrt(5))/2, _)-pow((1-sqrt(5))/2, _))/sqrt(5))
 
 def main():
-    for i in fibonacci(13):
-        print(i)
+    pass
 
 
 if __name__ == "__main__":

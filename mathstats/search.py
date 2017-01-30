@@ -7,7 +7,7 @@ def isemail(txt):
 def isfloat(txt):
     return re.compile(r"^\d+?(?:\.|\,)\d+?$", re.S).match(txt)
 
-def url_inspect(txt):
+def urlparse(txt):
     return re.match(re.compile(r"^(?P<schema>https?)://(?P<host>.+?)/(?P<path>[^?]+?)?(?:\?|$)(?P<params>.+?)?$", re.I | re.S), txt).groupdict()
 
 
@@ -43,7 +43,7 @@ def n_gramm(str, k = 10, n = 4):
     for gramm in words_array:
         for word in words_array:
             result[gramm] = word.count(gramm)
-    print(result)
+    return result
 
 
 def main(str):
