@@ -1,7 +1,7 @@
 import argparse
-import mathstats.search as se
-import mathstats.sort as so
-import mathstats.fib as fi
+import models.search as se
+import models.sort as so
+import models.fib as fi
 from mathstats.uniqholder import UniqueHolder
 from views.console_input import ConsoleReader
 from views.console_view import ConsoleWriter

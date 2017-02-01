@@ -7,14 +7,14 @@ class Controller(object):
         self.O = output
         self.cmd = {"help": Command(self.wait, self.O.response ,self.introduce) }
 
-    def wait(self, *whatever):
+    def wait(self):
         pass
 
     def add(self, name, func):
         self.cmd[name.lower()] = func
         return self
 
-    def introduce(self, *whatever):
+    def introduce(self):
         self.O.response("Command list: ")
         for counter, key in enumerate(self.cmd):
             self.O.response(str(counter) + ". " + key.capitalize())
@@ -49,20 +49,4 @@ class Controller(object):
         else:
             result = self.I.request('Input:') 
         return result
-
-    def sorting_module(self, date):
-        sort = {'1':so.quick_sort, '2':so.merge_sort, '3':so.radix_sort}
-        array = list(map(int, date.split()))
-        self.O.response('1.quick_sort\n2.merge_sort\n3.radix_sort','red')
-        sort_number = self.I.request('Input:') 
-        self.O.response(str(sort[sort_number](array)))
-        self.O.response('='*50,'blue')
-
-    def textstats_module(self, date):
-        for i,j in se.word_analysis(date).items():
-            self.O.response('{}--{}'.format(i,j))
-        math = se.sentence_analysis(date)
-        self.O.response('average - {}\nmedian - {}'.format(math['average'],math['median'])) 
-        self.O.response('='*50,'blue')
-
 

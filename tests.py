@@ -1,5 +1,5 @@
 import sys
-import mathstats.sort as module
+import models.sort as module
 import datetime
 import random
 from views.console_input import request
